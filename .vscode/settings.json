@@ -1,0 +1,16 @@
+{
+	"typescript.preferences.importModuleSpecifierEnding": "minimal",
+	"typescript.preferences.importModuleSpecifier": "shortest",
+	"typescript.preferences.includePackageJsonAutoImports": "on",
+	"files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/CVS": true,
+		"**/.DS_Store": true,
+		"**/Thumbs.db": true,
+		"**/.jest-cache": true,
+		"**/.turbo": true,
+		"{apps,packages}/**/node_modules": false
+	}
+}
