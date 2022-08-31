@@ -1,0 +1,13 @@
+{
+	"hosting": {
+		"site": "teaching-anjo",
+		"public": "input",
+		"ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+		"rewrites": [
+			{
+				"source": "**",
+				"destination": "/index.html"
+			}
+		]
+	}
+}

@@ -3,7 +3,8 @@ import { LinkButton } from '@angel-oak/ui/buttons/link-button';
 
 const buttons: Array<{ href: string; label: string }> = [
 	{ href: '/', label: 'Home' },
-	// { href: '/add-subscription', label: 'Add Subscription' },
+	{ href: '/base-conv', label: 'Conversão de Base' },
+	{ href: '/base-conv/n-to-10', label: 'Base N => Base 10' },
 ];
 
 export const Header: React.FC = () => {

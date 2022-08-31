@@ -2,10 +2,10 @@
 import { initializeApp } from 'firebase/app';
 
 initializeApp({
-	apiKey: 'AIzaSyAjutcosNtbK--ZjFRFd7E1R904bMFb6wk',
-	authDomain: 'financial-track.firebaseapp.com',
-	projectId: 'financial-track',
-	storageBucket: 'financial-track.appspot.com',
-	messagingSenderId: '22532215467',
-	appId: '1:22532215467:web:974b01b686ef4262af9dee',
+	apiKey: 'AIzaSyBAfuEkruQqiiO1fW4gDOU0EN4-aotVSOI',
+	authDomain: 'teaching-anjo.firebaseapp.com',
+	projectId: 'teaching-anjo',
+	storageBucket: 'teaching-anjo.appspot.com',
+	messagingSenderId: '124333726061',
+	appId: '1:124333726061:web:0321e9cf38c02303522264',
 });

@@ -1,5 +1,5 @@
 {
-	"name": "@angel-oak/finance-track-mono-repo",
+	"name": "@angel-oak/teaching-anjo",
 	"version": "0.0.0",
 	"private": true,
 	"workspaces": [
@@ -17,8 +17,7 @@
 		"firebase.functions": "yarn workspace @angel-oak/firebase-functions",
 		"web": "yarn workspace web",
 		"utils": "yarn workspace @angel-oak/utils",
-		"ui": "yarn workspace @angel-oak/ui",
-		"omni-channel": "yarn workspace @angel-oak/omni-channel"
+		"ui": "yarn workspace @angel-oak/ui"
 	},
 	"devDependencies": {
 		"@types/uuid": "^8.3.4",
