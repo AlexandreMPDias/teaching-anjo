@@ -7,47 +7,26 @@ export interface IScreenProps extends BoxProps {
 	 * @default {false}
 	 */
 	isLoading?: boolean;
-
-	containerProps?: BoxProps;
 }
 
-const ScreenFlex: React.FC<IScreenProps> = ({ containerProps, ...props }) => {
+const Loading: React.FC<{ loading: boolean }> = ({ children, loading }) => {
+	if (!loading) {
+		return <>{children}</>;
+	}
+
 	return (
-		<Box
-			w="100%"
-			h="100%"
-			maxHeight="100vh"
-			bg="background.page"
-			overflow="hidden"
-			mx="auto"
-			{...containerProps}
-		>
-			<Box
-				w="100%"
-				h="100%"
-				maxW="500px"
-				maxHeight="100vh"
-				p="10px"
-				mx="auto"
-				overflow="hidden"
-				{...props}
-			>
-				{props.isLoading ? (
-					<Flex height="100%" justifyContent="center" alignContent="center">
-						<Spinner alignSelf="center" />
-					</Flex>
-				) : (
-					props.children
-				)}
-			</Box>
-		</Box>
+		<Flex flexGrow={1} justifyContent="center" alignContent="center">
+			<Spinner alignSelf="center" />
+		</Flex>
 	);
 };
 
-export const Screen: React.FC<IScreenProps> = (p) => {
-	const { bottom, ...props } = p;
-
-	return <ScreenFlex {...props} />;
+export const Screen: React.FC<IScreenProps> = ({ isLoading, children, ...props }) => {
+	return (
+		<Box textAlign={'center'} w="100%" h="100%" bg="background.page" mx="auto" {...props}>
+			<Loading loading={!!isLoading}>{children}</Loading>
+		</Box>
+	);
 };
 
 Screen.defaultProps = {};

@@ -10,12 +10,14 @@ import {
 	Text,
 	Stack,
 	Divider,
+	Box,
 } from '@chakra-ui/react';
 import { Screen } from '@angel-oak/ui/layouts/screen';
 import React, { useMemo, useState } from 'react';
 import { BaseDecToN, base_dec_to_n } from './magic';
 import Latex from 'react-latex';
 import { callAnjo } from '~/helpers/call-anjo';
+import { Scrollable } from '@angel-oak/ui/layouts/scrollable';
 
 const InputField: React.FC<{
 	label: string;
@@ -54,6 +56,18 @@ const Content: React.FC<{ math: BaseDecToN | null }> = ({ math }) => {
 	if (!math) return null;
 	const { table, vector, result } = math;
 
+	// return (
+	// 	<>
+	// 		{new Array(30).fill(0).map((_, i) => {
+	// 			return (
+	// 				<Box key={i} boxSize="80px" bg="red" border="1px solid black">
+	// 					Box: {i}
+	// 				</Box>
+	// 			);
+	// 		})}
+	// 	</>
+	// );
+
 	return (
 		<Stack display="flex" flexDirection={'column'} flexGrow={0.3}>
 			<VStack gap="5px" flexGrow={1}>
@@ -86,7 +100,7 @@ export const Base10ToBaseNScreen: React.FC = () => {
 	}, [base, input]);
 
 	return (
-		<Screen display="flex" flexDirection={'column'} pb="20px">
+		<Screen overflowY="auto">
 			<Center pt="10px" flexShrink={1} alignItems="flex-start">
 				<Latex>{title}</Latex>
 			</Center>
