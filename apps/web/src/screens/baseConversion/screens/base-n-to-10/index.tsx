@@ -1,5 +1,4 @@
 import {
-	Box,
 	Button,
 	Center,
 	Input,
@@ -14,10 +13,11 @@ import { Screen } from '@angel-oak/ui/layouts/screen';
 import { useMemo, useState } from 'react';
 import { BaseNToDecMagic, base_n_to_dec } from './magic';
 import Latex from 'react-latex';
+import { callAnjo } from '~/helpers/call-anjo';
 
 const isValidBaseInputPair = (base: number, input: string): string | null => {
 	if (!base || !input) {
-		return 'Delícia, você precisa definir tanto a Base quanto o Valor';
+		return ', você precisa definir tanto a Base quanto o Valor';
 	}
 	if (
 		input.split('').some((digit) => {
@@ -25,7 +25,7 @@ const isValidBaseInputPair = (base: number, input: string): string | null => {
 			return value === -1 || value >= base;
 		})
 	) {
-		return 'Alguma coisa deu errado...';
+		return ', parece que alguma coisa deu errado...';
 	}
 	return null;
 };
@@ -40,7 +40,7 @@ const InputField: React.FC<{
 	return (
 		<FormControl isInvalid={!!props.error}>
 			<InputGroup mt={'5px'}>
-				<InputLeftAddon color="black" children={props.label} />
+				<InputLeftAddon children={props.label} />
 				<Input
 					type={props.text ? 'text' : 'number'}
 					value={props.value}
@@ -78,7 +78,7 @@ const Content: React.FC<{ math: BaseNToDecMagic | null }> = ({ math }) => {
 export const BaseNToBase10Screen: React.FC = () => {
 	const [error, setError] = useState<string | null>(null);
 	const [base, setBase] = useState<number>(2);
-	const [input, setInput] = useState<string>('1001100010');
+	const [input, setInput] = useState<string>('');
 	const [math, setMath] = useState<BaseNToDecMagic | null>(null);
 
 	const title = useMemo(() => {
@@ -98,10 +98,11 @@ export const BaseNToBase10Screen: React.FC = () => {
 				py="5px"
 				onClick={() => {
 					const err = isValidBaseInputPair(base, input);
-					setError(err);
 					if (err) {
+						setError(callAnjo({ unpossesive: true }) + err);
 						setMath(null);
 					} else {
+						setError(null);
 						setMath(base_n_to_dec(input, base));
 					}
 				}}

@@ -13,10 +13,14 @@ function Web({ Component, pageProps }: AppProps) {
 	const C = Component as any;
 	return (
 		<StyleProvider>
-			<Head>
+			{/* <Head>
+				<link
+					href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css"
+					rel="stylesheet"
+				/>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<title>Teaching Anjo</title>
-			</Head>
+			</Head> */}
 			<GlobalLoader.Provider>
 				<Page>
 					<C {...pageProps} />

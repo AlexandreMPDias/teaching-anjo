@@ -112,6 +112,7 @@ const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
 			border: '1px solid',
 			borderColor: mode('inherit', 'whiteAlpha.50')(props),
 			bg: mode('gray.100', 'whiteAlpha.300')(props),
+			color: 'black',
 		},
 	};
 };
@@ -148,6 +149,7 @@ const variantFilled: PartsStyleFunction<typeof parts> = (props) => {
 			border: '2px solid',
 			borderColor: 'transparent',
 			bg: mode('gray.100', 'whiteAlpha.50')(props),
+			color: 'black',
 		},
 	};
 };

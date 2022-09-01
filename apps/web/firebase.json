@@ -1,6 +1,6 @@
 {
 	"hosting": {
-		"site": "angeloak-fin-track",
+		"site": "teaching-anjo",
 		"public": "out",
 		"ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
 		"rewrites": [

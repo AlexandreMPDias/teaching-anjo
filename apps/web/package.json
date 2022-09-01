@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
+		"dev:ssr": "cross-env NODE_OPTIONS='--inspect' next dev",
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
@@ -11,7 +12,6 @@
 		"deploy": "firebase deploy --only hosting:teaching-anjo --project teaching-anjo"
 	},
 	"dependencies": {
-		"@angel-oak/core": "*",
 		"@angel-oak/poseidon": "*",
 		"@angel-oak/ui": "*",
 		"@angel-oak/utils": "*",

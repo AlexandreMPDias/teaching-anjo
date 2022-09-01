@@ -6,12 +6,7 @@ dotenv.config();
 /**
  * @type {(next: Exclude<import('next').NextConfig, undefined>) => any}
  */
-const withTM = transpile([
-	'@angel-oak/ui',
-	'@angel-oak/poseidon',
-	'@angel-oak/core',
-	'@angel-oak/utils',
-]);
+const withTM = transpile(['@angel-oak/ui', '@angel-oak/poseidon', '@angel-oak/utils']);
 
 const pickEnv = (...keys) => {
 	const env = {};

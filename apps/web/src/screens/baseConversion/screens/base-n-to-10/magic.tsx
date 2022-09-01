@@ -4,12 +4,10 @@ export interface BaseNToDecMagic {
 	result: string;
 }
 
-const brackets = (value: string) => `(${value})`;
+const brackets = (value: string | number) => `(${value})`;
 
 export function base_n_to_dec(input: string, base: number): BaseNToDecMagic {
 	const split = String(input).split('');
-
-	console.log(input, base);
 
 	const parcels = split.map((digit, index) => {
 		const potency = split.length - index - 1;
@@ -24,7 +22,7 @@ export function base_n_to_dec(input: string, base: number): BaseNToDecMagic {
 		};
 	});
 
-	console.log(parcels);
+	const output = parcels.reduce((sum, { value }) => sum + value, 0);
 
 	const steps = [
 		parcels
@@ -36,11 +34,18 @@ export function base_n_to_dec(input: string, base: number): BaseNToDecMagic {
 				.map(({ digit, i }) => `${digit.value} \\times ${base}^${i}`)
 				.map(brackets)
 				.join(' + '),
+
 		parcels
-			.map(({ value }) => `${value}`)
+			.map(({ value }) => value)
 			.map(brackets)
 			.join(' + '),
-		parcels.reduce((sum, { value }) => sum + value, 0),
+		output >= 0 &&
+			parcels
+				.filter(({ value }) => !!value)
+				.map(({ value }) => value)
+				.map(brackets)
+				.join(' + '),
+		output,
 	]
 		.filter(Boolean)
 		.map((x) => `$$ = ${x} $$`);
