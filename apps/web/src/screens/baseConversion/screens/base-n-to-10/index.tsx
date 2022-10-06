@@ -19,14 +19,14 @@ const isValidBaseInputPair = (base: number, input: string): string | null => {
 	if (!base || !input) {
 		return ', você precisa definir tanto a Base quanto o Valor';
 	}
-	if (
-		input.split('').some((digit) => {
-			const value = '0123456789abcdefghijklmnopqrstuvxyz'.indexOf(digit);
-			return value === -1 || value >= base;
-		})
-	) {
-		return ', parece que alguma coisa deu errado...';
-	}
+	// if (
+	// 	input.split('').some((digit) => {
+	// 		const value = '0123456789abcdefghijklmnopqrstuvxyz'.indexOf(digit);
+	// 		return value === -1 || value >= base;
+	// 	})
+	// ) {
+	// 	return ', parece que alguma coisa deu errado...';
+	// }
 	return null;
 };
 
@@ -42,7 +42,7 @@ const InputField: React.FC<{
 			<InputGroup mt={'5px'}>
 				<InputLeftAddon children={props.label} />
 				<Input
-					type={props.text ? 'text' : 'number'}
+					type={props.text ? 'text' : 'text'}
 					value={props.value}
 					color="white"
 					onChange={(e) => props.onChangeValue(e.target.value)}
