@@ -42,7 +42,7 @@ const InputField: React.FC<{
 			<InputGroup mt={'5px'}>
 				<InputLeftAddon children={props.label} />
 				<Input
-					type={props.text ? 'text' : 'text'}
+					type={'text'}
 					value={props.value}
 					color="white"
 					onChange={(e) => props.onChangeValue(e.target.value)}
